@@ -1,6 +1,10 @@
 import { Container, CssBaseline, ThemeProvider } from "@mui/material";
 import Header from "./components/Header";
-import useThemeContext from "./theme";
+import useThemeContext from "./context/theme";
+import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
+const Home = lazy(() => import("./pages/Home"));
+const Coin = lazy(() => import("./pages/Coin"));
 
 const App = () => {
   const { responsiveTheme } = useThemeContext();
@@ -9,9 +13,12 @@ const App = () => {
       <ThemeProvider theme={responsiveTheme}>
         <CssBaseline />
         <Header />
-        <Container>
-          <h1>Hello John</h1>
-        </Container>
+        <Suspense fallback="Loading...">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/coin/:id" element={<Coin />} />
+          </Routes>
+        </Suspense>
       </ThemeProvider>
     </main>
   );

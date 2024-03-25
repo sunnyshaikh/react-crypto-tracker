@@ -35,7 +35,7 @@ export const ThemeContextProvider = ({ children }) => {
           }
         : {
             primary: {
-              100: "#fcfcfd",
+              100: "#ffffff",
               200: "#f9fafa",
               300: "#f7f7f8",
               400: "#f4f5f5",
@@ -69,6 +69,7 @@ export const ThemeContextProvider = ({ children }) => {
           : {
               primary: {
                 main: colors.primary[500],
+                light: colors.primary[100],
               },
               secondary: {
                 main: "#a27d54",
@@ -77,6 +78,29 @@ export const ThemeContextProvider = ({ children }) => {
                 default: colors.primary[500],
               },
             }),
+      },
+      typography: {
+        fontFamily: ["Nunito Sans", "Roboto", "sans-serif"].join(","),
+        h1: {
+          fontFamily: ["Lato", "Roboto", "sans-serif"].join(","),
+          fontWeight: "700",
+        },
+        h2: {
+          fontFamily: ["Lato", "Roboto", "sans-serif"].join(","),
+          fontWeight: "700",
+        },
+        h3: {
+          fontFamily: ["Lato", "Roboto", "sans-serif"].join(","),
+          fontWeight: "700",
+        },
+        h4: {
+          fontFamily: ["Lato", "Roboto", "sans-serif"].join(","),
+          fontWeight: "600",
+        },
+        h5: {
+          fontFamily: ["Lato", "Roboto", "sans-serif"].join(","),
+          fontWeight: "500",
+        },
       },
       components: {
         MuiButton: {
